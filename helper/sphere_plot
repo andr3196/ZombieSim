@@ -1,0 +1,21 @@
+function scenario3d()
+%% Goal 
+% 
+close all
+inp = load('run1scenario3M.mat');
+M = inp.M;
+k = 5;
+n = 100;
+theta = pi*(-n:2:n)/n;
+phi = (pi/2)*(-n:2:n)'/n;
+X = cos(phi)*cos(theta);
+Y = cos(phi)*sin(theta);
+Z = sin(phi)*ones(size(theta));
+%colormap([0 0 0;1 1 1])
+%C = zeros(n); 
+surf(X,Y,Z,M)
+axis square
+for i = 1:400
+    view([i 10])
+    pause(0.05)
+end
